@@ -1,0 +1,235 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}Portfólio — Design & Desenvolvimento Web{% endblock %}
+
+{% block content %}
+
+<!-- ===================== HERO SECTION ===================== -->
+<section id="hero" class="bg-hero min-h-screen flex items-center relative overflow-hidden">
+    <!-- Background decorative elements -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-20 left-10 w-72 h-72 bg-primary-600/10 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-primary-400/8 rounded-full blur-3xl animate-float"
+            style="animation-delay: 2s;"></div>
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-700/5 rounded-full blur-3xl">
+        </div>
+    </div>
+
+    <div class="container mx-auto px-6 lg:px-16 relative z-10">
+        <div class="max-w-3xl">
+            <!-- Badge -->
+            <div
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary-500/30 bg-primary-500/10 mb-8">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="text-sm text-primary-300 font-medium">Disponível para novos projetos</span>
+            </div>
+
+            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+                <span class="text-white">Olá, eu sou</span><br>
+                <span class="gradient-text">Desenvolvedor</span><br>
+                <span class="text-white">&amp; Designer</span>
+            </h1>
+
+            <p class="text-lg md:text-xl text-surface-200/80 max-w-xl mb-10 leading-relaxed">
+                Criando experiências digitais que unem <strong class="text-primary-300">design gráfico</strong>
+                sofisticado e <strong class="text-primary-300">desenvolvimento web fullstack</strong>
+                de alta performance.
+            </p>
+
+            <div class="flex flex-wrap gap-4">
+                <a href="#projetos"
+                    class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-500 text-white font-semibold rounded-xl hover:from-primary-500 hover:to-primary-400 transition-all duration-300 shadow-lg shadow-primary-600/30 hover:shadow-primary-500/40 hover:-translate-y-0.5">
+                    <i data-lucide="folder-open" class="w-5 h-5"></i>
+                    Ver Projetos
+                </a>
+                <a href="#contato"
+                    class="inline-flex items-center gap-2 px-8 py-4 border border-surface-200/20 text-surface-200 font-semibold rounded-xl hover:bg-surface-200/5 hover:border-surface-200/40 transition-all duration-300 hover:-translate-y-0.5">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                    Contato
+                </a>
+            </div>
+
+            <!-- Tech stack icons -->
+            <div class="mt-16 flex items-center gap-6 text-surface-200/40">
+                <span class="text-xs uppercase tracking-widest font-medium">Stack</span>
+                <div class="h-px w-8 bg-surface-200/20"></div>
+                <div class="flex gap-4 text-sm font-medium">
+                    <span class="px-3 py-1 rounded-md bg-surface-700/50 text-surface-200/60">Django</span>
+                    <span class="px-3 py-1 rounded-md bg-surface-700/50 text-surface-200/60">React</span>
+                    <span class="px-3 py-1 rounded-md bg-surface-700/50 text-surface-200/60">Figma</span>
+                    <span
+                        class="px-3 py-1 rounded-md bg-surface-700/50 text-surface-200/60 hidden sm:inline-block">PostgreSQL</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+        <span class="text-xs text-surface-200/40 uppercase tracking-widest">Scroll</span>
+        <i data-lucide="chevron-down" class="w-5 h-5 text-primary-400/60"></i>
+    </div>
+</section>
+
+
+<!-- ===================== PROJECTS SECTION ===================== -->
+<section id="projetos" class="py-24 bg-surface-900">
+    <div class="container mx-auto px-6 lg:px-16">
+
+        <!-- Section header -->
+        <div class="text-center mb-16">
+            <span class="text-primary-400 text-sm font-semibold uppercase tracking-widest">Portfólio</span>
+            <h2 class="text-4xl md:text-5xl font-bold text-white mt-3 mb-4">Meus Projetos</h2>
+            <p class="text-surface-200/60 max-w-lg mx-auto">
+                Uma seleção dos meus melhores trabalhos em design gráfico e desenvolvimento web.
+            </p>
+        </div>
+
+        <!-- Category filter -->
+        <div class="flex justify-center gap-3 mb-14">
+            <a href="{% url 'portfolio:index' %}"
+                class="filter-btn px-6 py-2.5 rounded-xl text-sm font-semibold border border-surface-200/10 text-surface-200/60 {% if not current_category %}active{% endif %}">
+                <span class="flex items-center gap-2">
+                    <i data-lucide="layout-grid" class="w-4 h-4"></i> Todos
+                </span>
+            </a>
+            <a href="{% url 'portfolio:index' %}?category=web"
+                class="filter-btn px-6 py-2.5 rounded-xl text-sm font-semibold border border-surface-200/10 text-surface-200/60 {% if current_category == 'web' %}active{% endif %}">
+                <span class="flex items-center gap-2">
+                    <i data-lucide="code-2" class="w-4 h-4"></i> Web
+                </span>
+            </a>
+            <a href="{% url 'portfolio:index' %}?category=design"
+                class="filter-btn px-6 py-2.5 rounded-xl text-sm font-semibold border border-surface-200/10 text-surface-200/60 {% if current_category == 'design' %}active{% endif %}">
+                <span class="flex items-center gap-2">
+                    <i data-lucide="palette" class="w-4 h-4"></i> Design
+                </span>
+            </a>
+        </div>
+
+        <!-- Project grid -->
+        {% if projects %}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for project in projects %}
+            <article class="card-glass rounded-2xl overflow-hidden group">
+                <!-- Thumbnail -->
+                <div class="relative overflow-hidden aspect-[16/10]">
+                    <img src="{{ project.thumbnail.url }}" alt="{{ project.title }}"
+                        class="card-img w-full h-full object-cover" loading="lazy">
+
+                    <!-- Category badge overlay -->
+                    <div class="absolute top-4 left-4">
+                        <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full
+                            {% if project.category == 'web' %}
+                                bg-blue-500/20 text-blue-300 border border-blue-400/30
+                            {% else %}
+                                bg-pink-500/20 text-pink-300 border border-pink-400/30
+                            {% endif %}">
+                            {{ project.get_category_display }}
+                        </span>
+                    </div>
+
+                    <!-- Hover overlay with buttons -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-surface-900/90 via-surface-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end justify-center pb-6 gap-3">
+                        <a href="{{ project.link_url }}" target="_blank" rel="noopener noreferrer"
+                            class="px-5 py-2.5 bg-primary-600 hover:bg-primary-500 text-white text-sm font-semibold rounded-lg transition-all duration-300 flex items-center gap-2 shadow-lg">
+                            <i data-lucide="external-link" class="w-4 h-4"></i> Ver Projeto
+                        </a>
+                        {% if project.github_url %}
+                        <a href="{{ project.github_url }}" target="_blank" rel="noopener noreferrer"
+                            class="px-5 py-2.5 bg-surface-700/80 hover:bg-surface-700 text-white text-sm font-semibold rounded-lg transition-all duration-300 flex items-center gap-2 border border-surface-200/10">
+                            <i data-lucide="github" class="w-4 h-4"></i> GitHub
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Card body -->
+                <div class="p-6">
+                    <h3
+                        class="text-lg font-bold text-white mb-2 group-hover:text-primary-300 transition-colors duration-300">
+                        {{ project.title }}
+                    </h3>
+                    <p class="text-surface-200/50 text-sm line-clamp-2 mb-4">
+                        {{ project.description|truncatewords:20 }}
+                    </p>
+
+                    <!-- Technologies -->
+                    <div class="flex flex-wrap gap-2">
+                        {% for tech in project.tech_list %}
+                        <span
+                            class="px-2.5 py-1 text-xs font-medium rounded-md bg-primary-500/10 text-primary-300 border border-primary-500/20">
+                            {{ tech }}
+                        </span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="text-center py-20">
+            <i data-lucide="inbox" class="w-16 h-16 text-surface-200/20 mx-auto mb-4"></i>
+            <p class="text-surface-200/40 text-lg">Nenhum projeto encontrado nesta categoria.</p>
+        </div>
+        {% endif %}
+
+    </div>
+</section>
+
+
+<!-- ===================== CONTACT / FOOTER ===================== -->
+<footer id="contato" class="relative py-20 bg-surface-800 border-t border-surface-200/5">
+    <div class="container mx-auto px-6 lg:px-16">
+        <div class="max-w-3xl mx-auto text-center">
+
+            <!-- Header -->
+            <span class="text-primary-400 text-sm font-semibold uppercase tracking-widest">Contato</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mt-3 mb-4">Vamos trabalhar juntos?</h2>
+            <p class="text-surface-200/60 mb-10">
+                Entre em contato para discutirmos seu próximo projeto. Estou disponível para
+                freelances e colaborações.
+            </p>
+
+            <!-- Contact link -->
+            <a href="mailto:seuemail@email.com"
+                class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-500 text-white font-semibold rounded-xl hover:from-primary-500 hover:to-primary-400 transition-all duration-300 shadow-lg shadow-primary-600/30 hover:shadow-primary-500/40 hover:-translate-y-0.5 pulse-glow">
+                <i data-lucide="send" class="w-5 h-5"></i>
+                Enviar E-mail
+            </a>
+
+            <!-- Social links -->
+            <div class="mt-12 flex justify-center gap-5">
+                <a href="#"
+                    class="w-12 h-12 rounded-xl bg-surface-700/50 border border-surface-200/10 flex items-center justify-center text-surface-200/50 hover:text-primary-400 hover:border-primary-500/30 hover:bg-primary-500/10 transition-all duration-300">
+                    <i data-lucide="github" class="w-5 h-5"></i>
+                </a>
+                <a href="#"
+                    class="w-12 h-12 rounded-xl bg-surface-700/50 border border-surface-200/10 flex items-center justify-center text-surface-200/50 hover:text-primary-400 hover:border-primary-500/30 hover:bg-primary-500/10 transition-all duration-300">
+                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+                </a>
+                <a href="#"
+                    class="w-12 h-12 rounded-xl bg-surface-700/50 border border-surface-200/10 flex items-center justify-center text-surface-200/50 hover:text-primary-400 hover:border-primary-500/30 hover:bg-primary-500/10 transition-all duration-300">
+                    <i data-lucide="instagram" class="w-5 h-5"></i>
+                </a>
+                <a href="#"
+                    class="w-12 h-12 rounded-xl bg-surface-700/50 border border-surface-200/10 flex items-center justify-center text-surface-200/50 hover:text-primary-400 hover:border-primary-500/30 hover:bg-primary-500/10 transition-all duration-300">
+                    <i data-lucide="dribbble" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="mt-16 pt-8 border-t border-surface-200/5 text-center">
+            <p class="text-surface-200/30 text-sm">
+                &copy; {% now "Y" %} — Desenvolvido com
+                <i data-lucide="heart" class="w-4 h-4 inline text-primary-500"></i>
+                usando Django &amp; Tailwind CSS
+            </p>
+        </div>
+    </div>
+</footer>
+
+{% endblock %}
