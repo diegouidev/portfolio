@@ -1,166 +1,463 @@
 {% extends 'portfolio/base.html' %}
 
-{% block title %}Portfólio — Design & Desenvolvimento Web{% endblock %}
+{% block title %}Diego Coelho — Engenheiro de Software & Designer Gráfico{% endblock %}
 
 {% block content %}
 
-<!-- ===================== HERO SECTION ===================== -->
-<section id="hero" class="bg-hero min-h-screen flex items-center relative overflow-hidden">
-    <!-- Background decorative elements -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-        <div class="absolute top-20 left-10 w-72 h-72 bg-primary-600/10 rounded-full blur-3xl animate-float"></div>
-        <div class="absolute bottom-20 right-10 w-96 h-96 bg-primary-400/8 rounded-full blur-3xl animate-float"
-            style="animation-delay: 2s;"></div>
-        <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-700/5 rounded-full blur-3xl">
-        </div>
-    </div>
+<!-- ===================== HERO ===================== -->
+<section id="hero" class="bg-hero min-h-screen flex items-center relative overflow-hidden pt-16">
 
-    <div class="container mx-auto px-6 lg:px-16 relative z-10">
-        <div class="max-w-3xl">
-            <!-- Badge -->
-            <div
-                class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary-500/30 bg-primary-500/10 mb-8">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span class="text-sm text-primary-300 font-medium">Disponível para novos projetos</span>
-            </div>
+    <!-- Dot grid -->
+    <div class="absolute inset-0 dot-grid opacity-40 pointer-events-none"></div>
 
-            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
-                <span class="text-white">Olá, eu sou</span><br>
-                <span class="gradient-text">Desenvolvedor</span><br>
-                <span class="text-white">&amp; Designer</span>
-            </h1>
+    <!-- Blobs -->
+    <div class="absolute top-1/4 left-0 w-[500px] h-[500px] bg-primary-600/8 rounded-full blur-3xl pointer-events-none" style="animation: float 7s ease-in-out infinite;"></div>
+    <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-violet-600/6 rounded-full blur-3xl pointer-events-none" style="animation: float 9s ease-in-out infinite; animation-delay:3s;"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-primary-900/15 rounded-full blur-3xl pointer-events-none"></div>
 
-            <p class="text-lg md:text-xl text-surface-200/80 max-w-xl mb-10 leading-relaxed">
-                Criando experiências digitais que unem <strong class="text-primary-300">design gráfico</strong>
-                sofisticado e <strong class="text-primary-300">desenvolvimento web fullstack</strong>
-                de alta performance.
-            </p>
+    <div class="container mx-auto px-6 lg:px-16 relative z-10 py-20 lg:py-0">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
 
-            <div class="flex flex-wrap gap-4">
-                <a href="#projetos"
-                    class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-500 text-white font-semibold rounded-xl hover:from-primary-500 hover:to-primary-400 transition-all duration-300 shadow-lg shadow-primary-600/30 hover:shadow-primary-500/40 hover:-translate-y-0.5">
-                    <i data-lucide="folder-open" class="w-5 h-5"></i>
-                    Ver Projetos
-                </a>
-                <a href="#contato"
-                    class="inline-flex items-center gap-2 px-8 py-4 border border-surface-200/20 text-surface-200 font-semibold rounded-xl hover:bg-surface-200/5 hover:border-surface-200/40 transition-all duration-300 hover:-translate-y-0.5">
-                    <i data-lucide="mail" class="w-5 h-5"></i>
-                    Contato
-                </a>
-            </div>
+            <!-- Text -->
+            <div>
+                <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-emerald-500/25 bg-emerald-500/8 mb-8" data-aos="fade-down">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+                    </span>
+                    <span class="text-xs text-emerald-400 font-semibold tracking-wide">Disponível para novos projetos</span>
+                </div>
 
-            <!-- Tech stack icons -->
-            <div class="mt-16 flex items-center gap-6 text-surface-200/40">
-                <span class="text-xs uppercase tracking-widest font-medium">Stack</span>
-                <div class="h-px w-8 bg-surface-200/20"></div>
-                <div class="flex gap-4 text-sm font-medium">
-                    <span class="px-3 py-1 rounded-md bg-surface-700/50 text-surface-200/60">Django</span>
-                    <span class="px-3 py-1 rounded-md bg-surface-700/50 text-surface-200/60">React</span>
-                    <span class="px-3 py-1 rounded-md bg-surface-700/50 text-surface-200/60">Figma</span>
-                    <span
-                        class="px-3 py-1 rounded-md bg-surface-700/50 text-surface-200/60 hidden sm:inline-block">PostgreSQL</span>
+                <h1 class="font-display text-5xl md:text-6xl xl:text-7xl font-extrabold leading-[1.05] tracking-tight mb-6" data-aos="fade-up" data-aos-delay="50">
+                    <span class="text-white">Olá, eu sou</span><br>
+                    <span class="gradient-text">Diego Coelho</span>
+                </h1>
+
+                <div class="flex items-center gap-3 mb-6" data-aos="fade-up" data-aos-delay="100">
+                    <span class="h-px w-8 bg-primary-500/50"></span>
+                    <p class="section-label">Eng. de Software · Designer Gráfico</p>
+                </div>
+
+                <p class="text-base md:text-lg text-surface-300/80 max-w-xl mb-10 leading-relaxed" data-aos="fade-up" data-aos-delay="150">
+                    Pós-graduado em <strong class="text-white font-semibold">Engenharia de Software</strong>
+                    com graduação em <strong class="text-white font-semibold">Design Gráfico</strong> para criar
+                    produtos digitais tecnicamente sólidos <em class="text-primary-300 not-italic">e</em>
+                    visualmente impecáveis.
+                </p>
+
+                <div class="flex flex-wrap gap-4 mb-14" data-aos="fade-up" data-aos-delay="200">
+                    <a href="#projetos"
+                        class="inline-flex items-center gap-2 px-7 py-3.5 bg-gradient-to-r from-primary-600 to-primary-500 text-white font-semibold rounded-xl hover:from-primary-500 hover:to-violet-500 transition-all duration-300 shadow-lg shadow-primary-600/25 hover:-translate-y-0.5">
+                        <i data-lucide="folder-open" class="w-4 h-4"></i>
+                        Ver Projetos
+                    </a>
+                    <a href="#contato"
+                        class="inline-flex items-center gap-2 px-7 py-3.5 border border-surface-600/60 text-surface-200 font-semibold rounded-xl hover:bg-white/5 hover:border-primary-500/40 hover:text-white transition-all duration-300 hover:-translate-y-0.5">
+                        <i data-lucide="mail" class="w-4 h-4"></i>
+                        Falar Comigo
+                    </a>
+                </div>
+
+                <!-- Stack chips -->
+                <div class="flex flex-wrap items-center gap-3" data-aos="fade-up" data-aos-delay="250">
+                    <span class="section-label">Stack</span>
+                    <span class="h-px w-6 bg-surface-600/50"></span>
+                    <span class="px-3 py-1 text-xs font-medium rounded-lg bg-surface-800/80 text-surface-300 border border-surface-700/60">Django</span>
+                    <span class="px-3 py-1 text-xs font-medium rounded-lg bg-surface-800/80 text-surface-300 border border-surface-700/60">React</span>
+                    <span class="px-3 py-1 text-xs font-medium rounded-lg bg-surface-800/80 text-surface-300 border border-surface-700/60">Figma</span>
+                    <span class="px-3 py-1 text-xs font-medium rounded-lg bg-surface-800/80 text-surface-300 border border-surface-700/60">PostgreSQL</span>
+                    <span class="px-3 py-1 text-xs font-medium rounded-lg bg-surface-800/80 text-surface-300 border border-surface-700/60 hidden sm:inline-block">Docker</span>
                 </div>
             </div>
+
+            <!-- Visual -->
+            <div class="hidden lg:flex items-center justify-center" data-aos="fade-left" data-aos-delay="100">
+                <div class="relative w-[400px] h-[400px]">
+                    <!-- Rings -->
+                    <div class="absolute inset-0 rounded-full border border-primary-500/12 spin-slow"></div>
+                    <div class="absolute inset-8 rounded-full border border-violet-500/10" style="animation: spin-slow 28s linear infinite reverse;"></div>
+
+                    <!-- Center orb -->
+                    <div class="absolute inset-14 rounded-full bg-gradient-to-br from-primary-600/25 via-violet-600/15 to-primary-900/40 border border-primary-500/20 pulse-glow flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="w-20 h-20 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary-500 to-violet-600 flex items-center justify-center shadow-2xl">
+                                <span class="font-display font-black text-white text-3xl">DC</span>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex gap-1.5 justify-center">
+                                    <span class="h-1.5 w-12 rounded-full bg-primary-400/50"></span>
+                                    <span class="h-1.5 w-7 rounded-full bg-violet-400/40"></span>
+                                </div>
+                                <div class="flex gap-1.5 justify-center">
+                                    <span class="h-1.5 w-5 rounded-full bg-cyan-400/40"></span>
+                                    <span class="h-1.5 w-10 rounded-full bg-primary-400/30"></span>
+                                    <span class="h-1.5 w-4 rounded-full bg-violet-400/30"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Orbiting badges -->
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <div class="orbit-1">
+                            <span class="px-3 py-1.5 text-xs font-bold rounded-lg bg-primary-950/90 border border-primary-500/40 text-primary-300 shadow-lg whitespace-nowrap">Django</span>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <div class="orbit-2">
+                            <span class="px-3 py-1.5 text-xs font-bold rounded-lg bg-violet-950/90 border border-violet-500/40 text-violet-300 shadow-lg whitespace-nowrap">Figma</span>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <div class="orbit-3">
+                            <span class="px-3 py-1.5 text-xs font-bold rounded-lg bg-cyan-950/90 border border-cyan-500/40 text-cyan-300 shadow-lg whitespace-nowrap">React</span>
+                        </div>
+                    </div>
+
+                    <!-- Floating stat cards -->
+                    <div class="absolute -top-2 -right-6 info-card rounded-xl px-4 py-3 shadow-xl" style="animation: float 7s ease-in-out infinite;">
+                        <p class="text-2xl font-extrabold stat-number font-display">2+</p>
+                        <p class="text-xs text-surface-400">Anos de exp.</p>
+                    </div>
+                    <div class="absolute -bottom-2 -left-6 info-card rounded-xl px-4 py-3 shadow-xl" style="animation: float 8s ease-in-out infinite; animation-delay: 1.5s;">
+                        <p class="text-2xl font-extrabold stat-number font-display">30+</p>
+                        <p class="text-xs text-surface-400">Projetos</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-        <span class="text-xs text-surface-200/40 uppercase tracking-widest">Scroll</span>
-        <i data-lucide="chevron-down" class="w-5 h-5 text-primary-400/60"></i>
+    <!-- Scroll hint -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2" style="animation: float 3s ease-in-out infinite;">
+        <span class="text-surface-500" style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; font-weight:700;">Scroll</span>
+        <i data-lucide="chevrons-down" class="w-4 h-4 text-primary-400/50"></i>
     </div>
 </section>
 
 
-<!-- ===================== PROJECTS SECTION ===================== -->
-<section id="projetos" class="py-24 bg-surface-900">
-    <div class="container mx-auto px-6 lg:px-16">
+<!-- ===================== SOBRE ===================== -->
+<section id="sobre" class="py-28 bg-section-alt relative overflow-hidden">
+    <div class="absolute inset-0 dot-grid opacity-20 pointer-events-none"></div>
 
-        <!-- Section header -->
-        <div class="text-center mb-16">
-            <span class="text-primary-400 text-sm font-semibold uppercase tracking-widest">Portfólio</span>
-            <h2 class="text-4xl md:text-5xl font-bold text-white mt-3 mb-4">Meus Projetos</h2>
-            <p class="text-surface-200/60 max-w-lg mx-auto">
+    <div class="container mx-auto px-6 lg:px-16 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+            <!-- Stats & "what I do" -->
+            <div class="order-2 lg:order-1" data-aos="fade-right">
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                    <div class="info-card rounded-2xl p-6">
+                        <p class="text-4xl font-extrabold stat-number font-display mb-1">2+</p>
+                        <p class="text-sm text-surface-400 font-medium">Anos de experiência</p>
+                    </div>
+                    <div class="info-card rounded-2xl p-6">
+                        <p class="text-4xl font-extrabold stat-number font-display mb-1">30+</p>
+                        <p class="text-sm text-surface-400 font-medium">Projetos entregues</p>
+                    </div>
+                    <div class="info-card rounded-2xl p-6">
+                        <p class="text-4xl font-extrabold stat-number font-display mb-1">2</p>
+                        <p class="text-sm text-surface-400 font-medium">Titulações acadêmicas</p>
+                    </div>
+                    <div class="info-card rounded-2xl p-6">
+                        <p class="text-4xl font-extrabold stat-number font-display mb-1">100%</p>
+                        <p class="text-sm text-surface-400 font-medium">Foco no resultado</p>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <div class="info-card rounded-xl p-4 flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-primary-500/12 border border-primary-500/20 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="code-2" class="w-5 h-5 text-primary-400"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-display font-semibold text-white text-sm mb-0.5">Desenvolvimento Fullstack</h4>
+                            <p class="text-xs text-surface-400 leading-relaxed">APIs robustas com Django/Python, interfaces modernas com React e TypeScript.</p>
+                        </div>
+                    </div>
+                    <div class="info-card rounded-xl p-4 flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-violet-500/12 border border-violet-500/20 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="palette" class="w-5 h-5 text-violet-400"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-display font-semibold text-white text-sm mb-0.5">Design UI/UX &amp; Gráfico</h4>
+                            <p class="text-xs text-surface-400 leading-relaxed">Identidade visual, sistemas de design e prototipagem de alta fidelidade no Figma.</p>
+                        </div>
+                    </div>
+                    <div class="info-card rounded-xl p-4 flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-cyan-500/12 border border-cyan-500/20 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="server" class="w-5 h-5 text-cyan-400"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-display font-semibold text-white text-sm mb-0.5">Arquitetura &amp; DevOps</h4>
+                            <p class="text-xs text-surface-400 leading-relaxed">Docker, CI/CD, PostgreSQL e infraestrutura escalável com boas práticas de engenharia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bio -->
+            <div class="order-1 lg:order-2" data-aos="fade-left">
+                <div class="section-label mb-4">Sobre mim</div>
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                    Onde o código<br>
+                    <span class="gradient-text">encontra o design</span>
+                </h2>
+                <div class="space-y-4 text-surface-300/80 text-sm leading-relaxed">
+                    <p>
+                        Sou engenheiro de software com pós-graduação e formado em Design Gráfico —
+                        uma combinação rara que me permite enxergar o produto digital de ponta a ponta,
+                        da identidade visual à arquitetura do backend.
+                    </p>
+                    <p>
+                        Minha abordagem une <strong class="text-white font-medium">rigor técnico</strong> e
+                        <strong class="text-white font-medium">sensibilidade estética</strong>: código limpo,
+                        escalável e testável, com interfaces que encantam o usuário e reforçam a identidade da marca.
+                    </p>
+                </div>
+
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <a href="#projetos"
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600/12 border border-primary-500/25 text-primary-300 font-semibold text-sm rounded-xl hover:bg-primary-600/22 hover:border-primary-500/45 transition-all duration-300 hover:-translate-y-0.5">
+                        <i data-lucide="eye" class="w-4 h-4"></i>
+                        Ver portfólio
+                    </a>
+                    <a href="#"
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-surface-800/70 border border-surface-700/60 text-surface-300 font-semibold text-sm rounded-xl hover:border-primary-500/30 hover:text-white transition-all duration-300 hover:-translate-y-0.5">
+                        <i data-lucide="download" class="w-4 h-4"></i>
+                        Download CV
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ===================== SKILLS ===================== -->
+<section id="skills" class="py-28 bg-surface-950 relative overflow-hidden">
+    <div class="absolute inset-0 dot-grid opacity-15 pointer-events-none"></div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-primary-600/5 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="container mx-auto px-6 lg:px-16 relative z-10">
+
+        <div class="text-center mb-16" data-aos="fade-up">
+            <div class="section-label mb-4">Especialidades</div>
+            <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-4">
+                Skills &amp; <span class="gradient-text">Stack</span>
+            </h2>
+            <p class="text-surface-400 max-w-md mx-auto text-sm leading-relaxed">
+                Ferramentas e tecnologias que uso no dia a dia para construir produtos de alto nível.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-14">
+
+            <!-- Dev skills -->
+            <div class="card-glass rounded-2xl p-8" data-aos="fade-right" data-aos-delay="50">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 rounded-xl bg-primary-500/12 border border-primary-500/20 flex items-center justify-center">
+                        <i data-lucide="terminal" class="w-5 h-5 text-primary-400"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-white text-lg">Desenvolvimento</h3>
+                </div>
+                <div class="space-y-5">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm text-surface-200 font-medium">Python / Django</span>
+                            <span class="text-xs text-primary-400 font-semibold">70%</span>
+                        </div>
+                        <div class="skill-bar h-1.5"><div class="skill-bar-fill" style="--w:70%; width:70%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm text-surface-200 font-medium">JavaScript / TypeScript</span>
+                            <span class="text-xs text-primary-400 font-semibold">60%</span>
+                        </div>
+                        <div class="skill-bar h-1.5"><div class="skill-bar-fill" style="width:60%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm text-surface-200 font-medium">React / Next.js</span>
+                            <span class="text-xs text-primary-400 font-semibold">60%</span>
+                        </div>
+                        <div class="skill-bar h-1.5"><div class="skill-bar-fill" style="width:60%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm text-surface-200 font-medium">PostgreSQL / Databases</span>
+                            <span class="text-xs text-primary-400 font-semibold">88%</span>
+                        </div>
+                        <div class="skill-bar h-1.5"><div class="skill-bar-fill" style="width:88%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm text-surface-200 font-medium">Docker &amp; DevOps</span>
+                            <span class="text-xs text-primary-400 font-semibold">75%</span>
+                        </div>
+                        <div class="skill-bar h-1.5"><div class="skill-bar-fill" style="width:75%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm text-surface-200 font-medium">REST APIs</span>
+                            <span class="text-xs text-primary-400 font-semibold">92%</span>
+                        </div>
+                        <div class="skill-bar h-1.5"><div class="skill-bar-fill" style="width:92%"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Design skills -->
+            <div class="card-glass rounded-2xl p-8" data-aos="fade-left" data-aos-delay="50">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 rounded-xl bg-violet-500/12 border border-violet-500/20 flex items-center justify-center">
+                        <i data-lucide="pen-tool" class="w-5 h-5 text-violet-400"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-white text-lg">Design</h3>
+                </div>
+                <div class="space-y-5">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm text-surface-200 font-medium">Figma / Prototyping</span>
+                            <span class="text-xs text-violet-400 font-semibold">80%</span>
+                        </div>
+                        <div class="skill-bar h-1.5"><div class="skill-bar-fill" style="width:80%; background: linear-gradient(90deg, #8b5cf6, #a78bfa);"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm text-surface-200 font-medium">UI Design &amp; Design Systems</span>
+                            <span class="text-xs text-violet-400 font-semibold">88%</span>
+                        </div>
+                        <div class="skill-bar h-1.5"><div class="skill-bar-fill" style="width:88%; background: linear-gradient(90deg, #8b5cf6, #a78bfa);"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm text-surface-200 font-medium">Identidade Visual / Branding</span>
+                            <span class="text-xs text-violet-400 font-semibold">85%</span>
+                        </div>
+                        <div class="skill-bar h-1.5"><div class="skill-bar-fill" style="width:85%; background: linear-gradient(90deg, #8b5cf6, #a78bfa);"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm text-surface-200 font-medium">Adobe Illustrator</span>
+                            <span class="text-xs text-violet-400 font-semibold">80%</span>
+                        </div>
+                        <div class="skill-bar h-1.5"><div class="skill-bar-fill" style="width:80%; background: linear-gradient(90deg, #8b5cf6, #a78bfa);"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm text-surface-200 font-medium">Photoshop</span>
+                            <span class="text-xs text-violet-400 font-semibold">78%</span>
+                        </div>
+                        <div class="skill-bar h-1.5"><div class="skill-bar-fill" style="width:78%; background: linear-gradient(90deg, #8b5cf6, #a78bfa);"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm text-surface-200 font-medium">Motion &amp; Micro-UX</span>
+                            <span class="text-xs text-violet-400 font-semibold">50%</span>
+                        </div>
+                        <div class="skill-bar h-1.5"><div class="skill-bar-fill" style="width:50%; background: linear-gradient(90deg, #8b5cf6, #a78bfa);"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tech badges -->
+        <div data-aos="fade-up" data-aos-delay="100">
+            <p class="section-label text-center mb-8">Tecnologias</p>
+            <div class="flex flex-wrap justify-center gap-3">
+                <span class="tech-badge px-4 py-2 rounded-xl text-sm font-medium text-surface-200 cursor-default">Python</span>
+                <span class="tech-badge px-4 py-2 rounded-xl text-sm font-medium text-surface-200 cursor-default">Django</span>
+                <span class="tech-badge px-4 py-2 rounded-xl text-sm font-medium text-surface-200 cursor-default">React</span>
+                <span class="tech-badge px-4 py-2 rounded-xl text-sm font-medium text-surface-200 cursor-default">TypeScript</span>
+                <span class="tech-badge px-4 py-2 rounded-xl text-sm font-medium text-surface-200 cursor-default">Next.js</span>
+                <span class="tech-badge px-4 py-2 rounded-xl text-sm font-medium text-surface-200 cursor-default">Tailwind CSS</span>
+                <span class="tech-badge px-4 py-2 rounded-xl text-sm font-medium text-surface-200 cursor-default">PostgreSQL</span>
+                <span class="tech-badge px-4 py-2 rounded-xl text-sm font-medium text-surface-200 cursor-default">Docker</span>
+                <span class="tech-badge px-4 py-2 rounded-xl text-sm font-medium text-surface-200 cursor-default">Git &amp; GitHub</span>
+                <span class="tech-badge px-4 py-2 rounded-xl text-sm font-medium text-surface-200 cursor-default">Figma</span>
+                <span class="tech-badge px-4 py-2 rounded-xl text-sm font-medium text-surface-200 cursor-default">Linux</span>
+                <span class="tech-badge px-4 py-2 rounded-xl text-sm font-medium text-surface-200 cursor-default">Redis</span>
+                <span class="tech-badge px-4 py-2 rounded-xl text-sm font-medium text-surface-200 cursor-default">REST API</span>
+                <span class="tech-badge px-4 py-2 rounded-xl text-sm font-medium text-surface-200 cursor-default">CI/CD</span>
+                <span class="tech-badge px-4 py-2 rounded-xl text-sm font-medium text-surface-200 cursor-default">Adobe CC</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===================== PROJECTS ===================== -->
+<section id="projetos" class="py-28 bg-section-alt relative overflow-hidden">
+    <div class="absolute inset-0 dot-grid opacity-20 pointer-events-none"></div>
+
+    <div class="container mx-auto px-6 lg:px-16 relative z-10">
+
+        <div class="text-center mb-16" data-aos="fade-up">
+            <div class="section-label mb-4">Portfólio</div>
+            <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-4">
+                Meus <span class="gradient-text">Projetos</span>
+            </h2>
+            <p class="text-surface-400 max-w-md mx-auto text-sm leading-relaxed">
                 Uma seleção dos meus melhores trabalhos em design gráfico e desenvolvimento web.
             </p>
         </div>
 
-        <!-- Category filter -->
-        <div class="flex justify-center gap-3 mb-14">
+        <!-- Filters -->
+        <div class="flex justify-center flex-wrap gap-3 mb-14" data-aos="fade-up" data-aos-delay="50">
             <a href="{% url 'portfolio:index' %}"
-                class="filter-btn px-6 py-2.5 rounded-xl text-sm font-semibold border border-surface-200/10 text-surface-200/60 {% if not current_category %}active{% endif %}">
-                <span class="flex items-center gap-2">
-                    <i data-lucide="layout-grid" class="w-4 h-4"></i> Todos
-                </span>
+                class="filter-btn inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold border border-surface-700/60 text-surface-400 {% if not current_category %}active{% endif %}">
+                <i data-lucide="layout-grid" class="w-4 h-4"></i> Todos
             </a>
             <a href="{% url 'portfolio:index' %}?category=web"
-                class="filter-btn px-6 py-2.5 rounded-xl text-sm font-semibold border border-surface-200/10 text-surface-200/60 {% if current_category == 'web' %}active{% endif %}">
-                <span class="flex items-center gap-2">
-                    <i data-lucide="code-2" class="w-4 h-4"></i> Web
-                </span>
+                class="filter-btn inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold border border-surface-700/60 text-surface-400 {% if current_category == 'web' %}active{% endif %}">
+                <i data-lucide="code-2" class="w-4 h-4"></i> Web
             </a>
             <a href="{% url 'portfolio:index' %}?category=design"
-                class="filter-btn px-6 py-2.5 rounded-xl text-sm font-semibold border border-surface-200/10 text-surface-200/60 {% if current_category == 'design' %}active{% endif %}">
-                <span class="flex items-center gap-2">
-                    <i data-lucide="palette" class="w-4 h-4"></i> Design
-                </span>
+                class="filter-btn inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold border border-surface-700/60 text-surface-400 {% if current_category == 'design' %}active{% endif %}">
+                <i data-lucide="palette" class="w-4 h-4"></i> Design
             </a>
         </div>
 
-        <!-- Project grid -->
         {% if projects %}
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
             {% for project in projects %}
-            <article class="card-glass rounded-2xl overflow-hidden group">
+            <article class="card-glass rounded-2xl overflow-hidden group" data-aos="fade-up" data-aos-delay="{{ forloop.counter0 }}0">
                 <!-- Thumbnail -->
-                <div class="relative overflow-hidden aspect-[16/10]">
+                <div class="relative overflow-hidden" style="aspect-ratio:16/10;">
                     <img src="{{ project.thumbnail.url }}" alt="{{ project.title }}"
                         class="card-img w-full h-full object-cover" loading="lazy">
-
-                    <!-- Category badge overlay -->
-                    <div class="absolute top-4 left-4">
-                        <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full
-                            {% if project.category == 'web' %}
-                                bg-blue-500/20 text-blue-300 border border-blue-400/30
-                            {% else %}
-                                bg-pink-500/20 text-pink-300 border border-pink-400/30
-                            {% endif %}">
+                    <div class="absolute top-3 left-3">
+                        <span class="px-2.5 py-1 text-xs font-bold uppercase tracking-wider rounded-lg backdrop-blur-sm
+                            {% if project.category == 'web' %}bg-primary-950/80 text-primary-300 border border-primary-500/40{% else %}bg-violet-950/80 text-violet-300 border border-violet-500/40{% endif %}">
                             {{ project.get_category_display }}
                         </span>
                     </div>
-
-                    <!-- Hover overlay with buttons -->
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-surface-900/90 via-surface-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end justify-center pb-6 gap-3">
+                    <div class="absolute inset-0 bg-gradient-to-t from-surface-950/95 via-surface-950/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-5 gap-3">
                         <a href="{{ project.link_url }}" target="_blank" rel="noopener noreferrer"
-                            class="px-5 py-2.5 bg-primary-600 hover:bg-primary-500 text-white text-sm font-semibold rounded-lg transition-all duration-300 flex items-center gap-2 shadow-lg">
-                            <i data-lucide="external-link" class="w-4 h-4"></i> Ver Projeto
+                            class="inline-flex items-center gap-2 px-4 py-2 bg-primary-600 hover:bg-primary-500 text-white text-xs font-bold rounded-lg transition-colors duration-200 shadow-lg">
+                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Ver
                         </a>
                         {% if project.github_url %}
                         <a href="{{ project.github_url }}" target="_blank" rel="noopener noreferrer"
-                            class="px-5 py-2.5 bg-surface-700/80 hover:bg-surface-700 text-white text-sm font-semibold rounded-lg transition-all duration-300 flex items-center gap-2 border border-surface-200/10">
-                            <i data-lucide="github" class="w-4 h-4"></i> GitHub
+                            class="inline-flex items-center gap-2 px-4 py-2 bg-surface-800/90 hover:bg-surface-700 text-white text-xs font-bold rounded-lg transition-colors duration-200 border border-surface-600/50">
+                            <i data-lucide="github" class="w-3.5 h-3.5"></i> GitHub
                         </a>
                         {% endif %}
                     </div>
                 </div>
-
                 <!-- Card body -->
                 <div class="p-6">
-                    <h3
-                        class="text-lg font-bold text-white mb-2 group-hover:text-primary-300 transition-colors duration-300">
+                    <h3 class="font-display font-bold text-white mb-2 group-hover:text-primary-300 transition-colors duration-300">
                         {{ project.title }}
                     </h3>
-                    <p class="text-surface-200/50 text-sm line-clamp-2 mb-4">
-                        {{ project.description|truncatewords:20 }}
+                    <p class="text-surface-400 text-sm line-clamp-2 mb-4 leading-relaxed">
+                        {{ project.description|truncatewords:18 }}
                     </p>
-
-                    <!-- Technologies -->
-                    <div class="flex flex-wrap gap-2">
+                    <div class="flex flex-wrap gap-1.5">
                         {% for tech in project.tech_list %}
-                        <span
-                            class="px-2.5 py-1 text-xs font-medium rounded-md bg-primary-500/10 text-primary-300 border border-primary-500/20">
+                        <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-primary-500/8 text-primary-300/80 border border-primary-500/12">
                             {{ tech }}
                         </span>
                         {% endfor %}
@@ -169,67 +466,142 @@
             </article>
             {% endfor %}
         </div>
+
         {% else %}
-        <div class="text-center py-20">
-            <i data-lucide="inbox" class="w-16 h-16 text-surface-200/20 mx-auto mb-4"></i>
-            <p class="text-surface-200/40 text-lg">Nenhum projeto encontrado nesta categoria.</p>
+        <div class="text-center py-24" data-aos="fade-up">
+            <div class="w-20 h-20 rounded-2xl bg-surface-800/80 border border-surface-700/50 flex items-center justify-center mx-auto mb-5">
+                <i data-lucide="inbox" class="w-9 h-9 text-surface-500"></i>
+            </div>
+            <h3 class="font-display font-bold text-white text-xl mb-2">Nenhum projeto aqui</h3>
+            <p class="text-surface-500 text-sm">Nenhum projeto cadastrado nesta categoria ainda.</p>
+            {% if current_category %}
+            <a href="{% url 'portfolio:index' %}" class="inline-flex items-center gap-2 mt-6 px-5 py-2.5 bg-primary-600/12 border border-primary-500/25 text-primary-300 text-sm font-semibold rounded-xl hover:bg-primary-600/22 transition-all duration-300">
+                Ver todos
+            </a>
+            {% endif %}
         </div>
         {% endif %}
-
     </div>
 </section>
 
 
-<!-- ===================== CONTACT / FOOTER ===================== -->
-<footer id="contato" class="relative py-20 bg-surface-800 border-t border-surface-200/5">
-    <div class="container mx-auto px-6 lg:px-16">
-        <div class="max-w-3xl mx-auto text-center">
+<!-- ===================== CONTACT ===================== -->
+<section id="contato" class="py-28 bg-surface-950 relative overflow-hidden">
+    <div class="absolute inset-0 dot-grid opacity-15 pointer-events-none"></div>
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-primary-600/5 rounded-full blur-3xl pointer-events-none"></div>
 
-            <!-- Header -->
-            <span class="text-primary-400 text-sm font-semibold uppercase tracking-widest">Contato</span>
-            <h2 class="text-3xl md:text-4xl font-bold text-white mt-3 mb-4">Vamos trabalhar juntos?</h2>
-            <p class="text-surface-200/60 mb-10">
-                Entre em contato para discutirmos seu próximo projeto. Estou disponível para
-                freelances e colaborações.
+    <div class="container mx-auto px-6 lg:px-16 relative z-10">
+
+        <div class="text-center mb-16" data-aos="fade-up">
+            <div class="section-label mb-4">Contato</div>
+            <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-4">
+                Vamos <span class="gradient-text">trabalhar juntos</span>?
+            </h2>
+            <p class="text-surface-400 max-w-md mx-auto text-sm leading-relaxed">
+                Disponível para projetos freelance, colaborações e posições full-time.
+                Me conta sobre o seu próximo projeto.
             </p>
-
-            <!-- Contact link -->
-            <a href="mailto:seuemail@email.com"
-                class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-500 text-white font-semibold rounded-xl hover:from-primary-500 hover:to-primary-400 transition-all duration-300 shadow-lg shadow-primary-600/30 hover:shadow-primary-500/40 hover:-translate-y-0.5 pulse-glow">
-                <i data-lucide="send" class="w-5 h-5"></i>
-                Enviar E-mail
-            </a>
-
-            <!-- Social links -->
-            <div class="mt-12 flex justify-center gap-5">
-                <a href="#"
-                    class="w-12 h-12 rounded-xl bg-surface-700/50 border border-surface-200/10 flex items-center justify-center text-surface-200/50 hover:text-primary-400 hover:border-primary-500/30 hover:bg-primary-500/10 transition-all duration-300">
-                    <i data-lucide="github" class="w-5 h-5"></i>
-                </a>
-                <a href="#"
-                    class="w-12 h-12 rounded-xl bg-surface-700/50 border border-surface-200/10 flex items-center justify-center text-surface-200/50 hover:text-primary-400 hover:border-primary-500/30 hover:bg-primary-500/10 transition-all duration-300">
-                    <i data-lucide="linkedin" class="w-5 h-5"></i>
-                </a>
-                <a href="#"
-                    class="w-12 h-12 rounded-xl bg-surface-700/50 border border-surface-200/10 flex items-center justify-center text-surface-200/50 hover:text-primary-400 hover:border-primary-500/30 hover:bg-primary-500/10 transition-all duration-300">
-                    <i data-lucide="instagram" class="w-5 h-5"></i>
-                </a>
-                <a href="#"
-                    class="w-12 h-12 rounded-xl bg-surface-700/50 border border-surface-200/10 flex items-center justify-center text-surface-200/50 hover:text-primary-400 hover:border-primary-500/30 hover:bg-primary-500/10 transition-all duration-300">
-                    <i data-lucide="dribbble" class="w-5 h-5"></i>
-                </a>
-            </div>
         </div>
 
-        <!-- Bottom bar -->
-        <div class="mt-16 pt-8 border-t border-surface-200/5 text-center">
-            <p class="text-surface-200/30 text-sm">
-                &copy; {% now "Y" %} — Desenvolvido com
-                <i data-lucide="heart" class="w-4 h-4 inline text-primary-500"></i>
-                usando Django &amp; Tailwind CSS
-            </p>
+        <div class="grid lg:grid-cols-5 gap-8 max-w-5xl mx-auto">
+
+            <!-- Info -->
+            <div class="lg:col-span-2 space-y-4" data-aos="fade-right">
+                <a href="mailto:seuemail@email.com" class="info-card rounded-2xl p-5 flex items-center gap-4 block hover:-translate-y-0.5 transition-transform duration-300">
+                    <div class="w-11 h-11 rounded-xl bg-primary-500/12 border border-primary-500/20 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="mail" class="w-5 h-5 text-primary-400"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-surface-500 mb-0.5 font-medium uppercase tracking-wide">E-mail</p>
+                        <p class="text-sm font-medium text-white">seuemail@email.com</p>
+                    </div>
+                </a>
+                <div class="info-card rounded-2xl p-5 flex items-center gap-4">
+                    <div class="w-11 h-11 rounded-xl bg-emerald-500/12 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="map-pin" class="w-5 h-5 text-emerald-400"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-surface-500 mb-0.5 font-medium uppercase tracking-wide">Localização</p>
+                        <p class="text-sm font-medium text-white">Brasil — Remoto &amp; Presencial</p>
+                    </div>
+                </div>
+                <div class="info-card rounded-2xl p-5 flex items-center gap-4">
+                    <div class="w-11 h-11 rounded-xl bg-violet-500/12 border border-violet-500/20 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="briefcase" class="w-5 h-5 text-violet-400"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-surface-500 mb-0.5 font-medium uppercase tracking-wide">Disponibilidade</p>
+                        <p class="text-sm font-medium text-white">Freelance &amp; Full-time</p>
+                    </div>
+                </div>
+
+                <div class="pt-2">
+                    <p class="section-label mb-4">Redes sociais</p>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-11 h-11 rounded-xl bg-surface-800 border border-surface-700/60 flex items-center justify-center text-surface-400 hover:text-primary-400 hover:border-primary-500/40 hover:bg-primary-500/8 transition-all duration-300 hover:-translate-y-0.5">
+                            <i data-lucide="github" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-11 h-11 rounded-xl bg-surface-800 border border-surface-700/60 flex items-center justify-center text-surface-400 hover:text-primary-400 hover:border-primary-500/40 hover:bg-primary-500/8 transition-all duration-300 hover:-translate-y-0.5">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-11 h-11 rounded-xl bg-surface-800 border border-surface-700/60 flex items-center justify-center text-surface-400 hover:text-primary-400 hover:border-primary-500/40 hover:bg-primary-500/8 transition-all duration-300 hover:-translate-y-0.5">
+                            <i data-lucide="dribbble" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-11 h-11 rounded-xl bg-surface-800 border border-surface-700/60 flex items-center justify-center text-surface-400 hover:text-primary-400 hover:border-primary-500/40 hover:bg-primary-500/8 transition-all duration-300 hover:-translate-y-0.5">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <div class="lg:col-span-3" data-aos="fade-left">
+                <div class="card-glass rounded-2xl p-8">
+                    {% if contact_success %}
+                    <div class="flex items-start gap-4 p-5 rounded-xl bg-emerald-500/10 border border-emerald-500/25 mb-6">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5"></i>
+                        <div>
+                            <p class="text-sm font-semibold text-emerald-300 mb-0.5">Mensagem enviada!</p>
+                            <p class="text-xs text-emerald-400/70">Obrigado pelo contato. Responderei em breve.</p>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <form method="post" action="{% url 'portfolio:contact' %}" novalidate>
+                        {% csrf_token %}
+                        <div class="grid sm:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-surface-400 mb-2 uppercase tracking-wide">Nome</label>
+                                <input type="text" name="name" required placeholder="Seu nome"
+                                    class="form-input w-full px-4 py-3 rounded-xl text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-surface-400 mb-2 uppercase tracking-wide">E-mail</label>
+                                <input type="email" name="email" required placeholder="seu@email.com"
+                                    class="form-input w-full px-4 py-3 rounded-xl text-sm">
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-xs font-semibold text-surface-400 mb-2 uppercase tracking-wide">Assunto</label>
+                            <input type="text" name="subject" placeholder="Projeto freelance, consultoria…"
+                                class="form-input w-full px-4 py-3 rounded-xl text-sm">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-xs font-semibold text-surface-400 mb-2 uppercase tracking-wide">Mensagem</label>
+                            <textarea name="message" rows="5" required placeholder="Conte-me sobre seu projeto…"
+                                class="form-input w-full px-4 py-3 rounded-xl text-sm resize-none"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-500 hover:to-violet-500 text-white font-bold rounded-xl transition-all duration-300 shadow-lg shadow-primary-600/25 hover:shadow-primary-500/40 hover:-translate-y-0.5 pulse-glow">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+
         </div>
     </div>
-</footer>
+</section>
 
 {% endblock %}

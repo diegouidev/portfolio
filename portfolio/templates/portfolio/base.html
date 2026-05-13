@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfólio profissional — Design Gráfico e Desenvolvimento Web Fullstack">
-    <title>{% block title %}Portfólio{% endblock %}</title>
+    <meta name="description" content="Diego Coelho — Engenheiro de Software & Designer Gráfico. Especializado em experiências digitais que unem design sofisticado e desenvolvimento web fullstack.">
+    <title>{% block title %}Diego Coelho — Dev & Designer{% endblock %}</title>
 
-    <!-- Tailwind CSS via CDN -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -14,6 +14,7 @@
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['"Space Grotesk"', 'Inter', 'system-ui', 'sans-serif'],
                     },
                     colors: {
                         primary: {
@@ -29,13 +30,52 @@
                             900: '#312e81',
                             950: '#1e1b4b',
                         },
+                        violet: {
+                            400: '#a78bfa',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                        },
+                        cyan: {
+                            400: '#22d3ee',
+                            500: '#06b6d4',
+                        },
                         surface: {
                             50:  '#f8fafc',
                             100: '#f1f5f9',
                             200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
                             700: '#1e293b',
                             800: '#0f172a',
                             900: '#020617',
+                            950: '#030712',
+                        },
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-slow': 'float 9s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
+                        'slide-up': 'slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'fade-in': 'fade-in 0.8s ease forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-16px)' },
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { boxShadow: '0 0 24px rgba(99, 102, 241, 0.3)' },
+                            '50%': { boxShadow: '0 0 48px rgba(99, 102, 241, 0.6), 0 0 80px rgba(139, 92, 246, 0.2)' },
+                        },
+                        'slide-up': {
+                            '0%': { opacity: '0', transform: 'translateY(32px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        'fade-in': {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
                         },
                     },
                 },
@@ -43,99 +83,380 @@
         }
     </script>
 
-    <!-- Google Fonts: Inter -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <!-- AOS – Animate on Scroll -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
     <style>
-        * { font-family: 'Inter', system-ui, sans-serif; }
-
-        /* Smooth gradient background */
-        .bg-hero {
-            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
+        :root {
+            --color-primary: #6366f1;
+            --color-primary-dark: #4f46e5;
+            --color-violet: #8b5cf6;
+            --color-surface-900: #020617;
+            --color-surface-800: #0f172a;
+            --color-surface-700: #1e293b;
         }
 
-        /* Glassmorphism card */
+        html { font-family: 'Inter', system-ui, sans-serif; }
+        h1, h2, h3 { font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif; }
+
+        /* Noise texture overlay */
+        .noise::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Hero gradient */
+        .bg-hero {
+            background:
+                radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99,102,241,0.18) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 40% at 90% 80%, rgba(139,92,246,0.12) 0%, transparent 60%),
+                #030712;
+        }
+
+        /* Section alternate */
+        .bg-section-alt {
+            background:
+                radial-gradient(ellipse 80% 50% at 50% 100%, rgba(99,102,241,0.06) 0%, transparent 70%),
+                #0f172a;
+        }
+
+        /* Glass card */
         .card-glass {
-            background: rgba(30, 41, 59, 0.6);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(99, 102, 241, 0.15);
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(99, 102, 241, 0.12);
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         .card-glass:hover {
             transform: translateY(-6px);
-            border-color: rgba(99, 102, 241, 0.4);
-            box-shadow: 0 20px 60px -15px rgba(99, 102, 241, 0.25);
+            border-color: rgba(99, 102, 241, 0.35);
+            box-shadow: 0 24px 60px -12px rgba(99, 102, 241, 0.22);
         }
+        .card-glass:hover .card-img { transform: scale(1.06); }
+        .card-img { transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
 
-        /* Image zoom on hover */
-        .card-glass:hover .card-img {
-            transform: scale(1.08);
-        }
-        .card-img {
-            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        /* Filter button active state */
-        .filter-btn.active {
-            background: linear-gradient(135deg, #6366f1, #4f46e5);
-            color: #ffffff;
-            box-shadow: 0 4px 20px -4px rgba(99, 102, 241, 0.5);
-        }
-        .filter-btn {
+        /* Info card */
+        .info-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(99, 102, 241, 0.1);
             transition: all 0.3s ease;
         }
-        .filter-btn:hover:not(.active) {
-            background: rgba(99, 102, 241, 0.15);
-            color: #a5b4fc;
-        }
-
-        /* Floating animation */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-12px); }
-        }
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
+        .info-card:hover {
+            border-color: rgba(99, 102, 241, 0.3);
+            background: rgba(30, 41, 59, 0.8);
         }
 
         /* Gradient text */
         .gradient-text {
-            background: linear-gradient(135deg, #818cf8 0%, #6366f1 50%, #a78bfa 100%);
+            background: linear-gradient(135deg, #818cf8 0%, #6366f1 40%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .gradient-text-cyan {
+            background: linear-gradient(135deg, #22d3ee 0%, #818cf8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        /* Pulse glow */
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.6); }
+        /* Glow effects */
+        .glow-primary { box-shadow: 0 0 32px rgba(99, 102, 241, 0.35); }
+        .pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+
+        /* Navbar glass */
+        .navbar-glass {
+            background: rgba(3, 7, 18, 0.75);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.08);
         }
-        .pulse-glow {
-            animation: pulse-glow 3s ease-in-out infinite;
+
+        /* Filter buttons */
+        .filter-btn { transition: all 0.25s ease; }
+        .filter-btn.active {
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
+            color: #fff;
+            box-shadow: 0 4px 20px -4px rgba(99, 102, 241, 0.5);
+        }
+        .filter-btn:hover:not(.active) {
+            background: rgba(99, 102, 241, 0.12);
+            color: #a5b4fc;
+        }
+
+        /* Skill bar */
+        .skill-bar {
+            background: rgba(99, 102, 241, 0.12);
+            border-radius: 9999px;
+            overflow: hidden;
+        }
+        .skill-bar-fill {
+            height: 6px;
+            border-radius: 9999px;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            transform-origin: left;
+            transform: scaleX(0);
+            transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .skill-bar-fill.animated { transform: scaleX(1); }
+
+        /* Tech badge */
+        .tech-badge {
+            background: rgba(99, 102, 241, 0.08);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+            transition: all 0.3s ease;
+        }
+        .tech-badge:hover {
+            background: rgba(99, 102, 241, 0.18);
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px -8px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Stat number */
+        .stat-number {
+            background: linear-gradient(135deg, #818cf8, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Timeline */
+        .timeline-line {
+            background: linear-gradient(180deg, #6366f1 0%, #8b5cf6 50%, transparent 100%);
         }
 
         /* Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #030712; }
         ::-webkit-scrollbar-thumb { background: #4f46e5; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #6366f1; }
+
+        /* Input styles */
+        .form-input {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+            color: #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: rgba(99, 102, 241, 0.5);
+            background: rgba(30, 41, 59, 0.8);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+        }
+        .form-input::placeholder { color: rgba(148, 163, 184, 0.4); }
+
+        /* Section label */
+        .section-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #818cf8;
+        }
+
+        /* Float animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-16px); }
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 24px rgba(99, 102, 241, 0.3); }
+            50% { box-shadow: 0 0 48px rgba(99, 102, 241, 0.6), 0 0 80px rgba(139, 92, 246, 0.2); }
+        }
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .spin-slow { animation: spin-slow 20s linear infinite; }
+
+        /* Orbit ring */
+        @keyframes orbit {
+            from { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+        }
+        @keyframes orbit-reverse {
+            from { transform: rotate(0deg) translateX(90px) rotate(0deg); }
+            to { transform: rotate(-360deg) translateX(90px) rotate(360deg); }
+        }
+        .orbit-1 { animation: orbit 8s linear infinite; }
+        .orbit-2 { animation: orbit-reverse 6s linear infinite; animation-delay: -2s; }
+        .orbit-3 { animation: orbit 12s linear infinite; animation-delay: -4s; }
+
+        /* Dot grid pattern */
+        .dot-grid {
+            background-image: radial-gradient(circle, rgba(99,102,241,0.15) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
     </style>
 
     {% block extra_head %}{% endblock %}
 </head>
 
-<body class="bg-surface-900 text-surface-100 antialiased">
+<body class="bg-surface-950 text-surface-100 antialiased overflow-x-hidden">
+
+    <!-- ===== NAVBAR ===== -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 lg:px-16">
+            <div class="flex items-center justify-between h-16 lg:h-18">
+
+                <!-- Logo -->
+                <a href="#hero" class="flex items-center gap-3 group">
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-500 to-violet-600 flex items-center justify-center shadow-lg group-hover:shadow-primary-500/40 transition-shadow duration-300">
+                        <span class="text-white font-bold text-sm font-display">DC</span>
+                    </div>
+                    <span class="font-display font-semibold text-white text-sm hidden sm:block">Diego Coelho</span>
+                </a>
+
+                <!-- Desktop nav -->
+                <div class="hidden md:flex items-center gap-1">
+                    <a href="#sobre" class="nav-link px-4 py-2 text-sm font-medium text-surface-300 hover:text-white rounded-lg hover:bg-white/5 transition-all duration-200">Sobre</a>
+                    <a href="#skills" class="nav-link px-4 py-2 text-sm font-medium text-surface-300 hover:text-white rounded-lg hover:bg-white/5 transition-all duration-200">Skills</a>
+                    <a href="#projetos" class="nav-link px-4 py-2 text-sm font-medium text-surface-300 hover:text-white rounded-lg hover:bg-white/5 transition-all duration-200">Projetos</a>
+                    <a href="#contato" class="nav-link px-4 py-2 text-sm font-medium text-surface-300 hover:text-white rounded-lg hover:bg-white/5 transition-all duration-200">Contato</a>
+                </div>
+
+                <!-- CTA + mobile toggle -->
+                <div class="flex items-center gap-3">
+                    <a href="#contato" class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 bg-primary-600 hover:bg-primary-500 text-white text-sm font-semibold rounded-xl transition-all duration-300 hover:-translate-y-0.5 shadow-md shadow-primary-600/25">
+                        <i data-lucide="zap" class="w-4 h-4"></i>
+                        Contratar
+                    </a>
+                    <!-- Mobile hamburger -->
+                    <button id="menu-btn" class="md:hidden p-2 rounded-lg text-surface-300 hover:text-white hover:bg-white/5 transition-all duration-200" aria-label="Menu">
+                        <i data-lucide="menu" class="w-5 h-5" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden navbar-glass border-t border-primary-500/10">
+            <div class="container mx-auto px-6 py-4 flex flex-col gap-1">
+                <a href="#sobre" class="mobile-nav-link px-4 py-3 text-sm font-medium text-surface-300 hover:text-white rounded-xl hover:bg-white/5 transition-all duration-200">Sobre</a>
+                <a href="#skills" class="mobile-nav-link px-4 py-3 text-sm font-medium text-surface-300 hover:text-white rounded-xl hover:bg-white/5 transition-all duration-200">Skills</a>
+                <a href="#projetos" class="mobile-nav-link px-4 py-3 text-sm font-medium text-surface-300 hover:text-white rounded-xl hover:bg-white/5 transition-all duration-200">Projetos</a>
+                <a href="#contato" class="mobile-nav-link px-4 py-3 text-sm font-medium text-surface-300 hover:text-white rounded-xl hover:bg-white/5 transition-all duration-200">Contato</a>
+                <div class="pt-2 border-t border-surface-700/50">
+                    <a href="#contato" class="flex items-center justify-center gap-2 px-4 py-3 bg-primary-600 hover:bg-primary-500 text-white text-sm font-semibold rounded-xl transition-all duration-300">
+                        <i data-lucide="zap" class="w-4 h-4"></i> Contratar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
     {% block content %}{% endblock %}
 
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-surface-950 border-t border-surface-700/30 py-12">
+        <div class="container mx-auto px-6 lg:px-16">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-violet-600 flex items-center justify-center">
+                        <span class="text-white font-bold text-xs font-display">DC</span>
+                    </div>
+                    <span class="text-surface-400 text-sm">Diego Coelho</span>
+                </div>
+                <p class="text-surface-500 text-sm order-last md:order-none">
+                    &copy; {% now "Y" %} — Feito com <i data-lucide="heart" class="w-3.5 h-3.5 inline text-primary-500 -mt-0.5"></i> usando Django &amp; Tailwind
+                </p>
+                <div class="flex gap-3">
+                    <a href="#" class="w-9 h-9 rounded-lg bg-surface-800 border border-surface-700/50 flex items-center justify-center text-surface-400 hover:text-primary-400 hover:border-primary-500/40 hover:bg-primary-500/8 transition-all duration-300">
+                        <i data-lucide="github" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#" class="w-9 h-9 rounded-lg bg-surface-800 border border-surface-700/50 flex items-center justify-center text-surface-400 hover:text-primary-400 hover:border-primary-500/40 hover:bg-primary-500/8 transition-all duration-300">
+                        <i data-lucide="linkedin" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#" class="w-9 h-9 rounded-lg bg-surface-800 border border-surface-700/50 flex items-center justify-center text-surface-400 hover:text-primary-400 hover:border-primary-500/40 hover:bg-primary-500/8 transition-all duration-300">
+                        <i data-lucide="instagram" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
     <script>
         lucide.createIcons();
+        AOS.init({ duration: 700, once: true, easing: 'ease-out-cubic', offset: 60 });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                navbar.classList.add('navbar-glass');
+            } else {
+                navbar.classList.remove('navbar-glass');
+            }
+        });
+
+        // Mobile menu
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.setAttribute('data-lucide', mobileMenu.classList.contains('hidden') ? 'menu' : 'x');
+            lucide.createIcons();
+        });
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            });
+        });
+
+        // Active nav link on scroll
+        const sections = ['hero', 'sobre', 'skills', 'projetos', 'contato'];
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('text-primary-400', 'text-white');
+                        link.classList.add('text-surface-300');
+                    });
+                    const active = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+                    if (active) {
+                        active.classList.remove('text-surface-300');
+                        active.classList.add('text-primary-400');
+                    }
+                }
+            });
+        }, { threshold: 0.4 });
+        sections.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) observer.observe(el);
+        });
+
+        // Skill bar animation on scroll
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
+                        bar.classList.add('animated');
+                    });
+                }
+            });
+        }, { threshold: 0.2 });
+        document.querySelectorAll('#skills').forEach(el => skillObserver.observe(el));
     </script>
     {% block extra_js %}{% endblock %}
 </body>

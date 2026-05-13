@@ -1,10 +1,6 @@
-version: '3.8'
-
 services:
-  # --- BANCO DE DADOS (Postgres 16) ---
   db:
     image: postgres:16-alpine
-    container_name: portfolio-db
     restart: unless-stopped
     env_file: .env
     environment:
@@ -12,37 +8,25 @@ services:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
     volumes:
-      # Volume para persistência dos dados do banco
-      - ./postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     ports:
-      # Porta 5435 para evitar conflito com os outros bancos (5432, 5433, 5434)
-      - "5435:5432"
-    networks:
-      - portfolio-network
+      - "5432:5432"
 
-  # --- WEB (Django) ---
   web:
     build: .
-    container_name: portfolio-web
     restart: unless-stopped
     env_file: .env
     ports:
-      # Porta 8003 para o Nginx do Ubuntu realizar o proxy
       - "8003:8000"
     volumes:
       - .:/app
-      # Mapeamento essencial para o Nginx ler o CSS/JS do Admin e Mídias
-      - ./staticfiles:/app/staticfiles
-      - ./media:/app/media
+      - media_data:/app/media
     depends_on:
       - db
     command: >
       sh -c "python manage.py migrate --noinput &&
-             python manage.py collectstatic --noinput &&
              python manage.py runserver 0.0.0.0:8000"
-    networks:
-      - portfolio-network
 
-networks:
-  portfolio-network:
-    driver: bridge
+volumes:
+  postgres_data:
+  media_data:
